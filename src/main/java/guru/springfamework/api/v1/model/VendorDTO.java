@@ -1,7 +1,11 @@
-package guru.springfamework.api.v1.model;
+package guru
+.springfamework.api.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,11 +14,24 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class VendorDTO {
     private String name;
-
+    
+    private List<ProductDTO> productsDTO = new ArrayList<>();
+    
     @JsonProperty("vendor_url")
     private String vendorUrl;
 
+	public VendorDTO(String name, String vendorUrl) {
+		super();
+		this.name = name;
+		this.vendorUrl = vendorUrl;
+	}
+
+	public VendorDTO(String name, List<ProductDTO> products, String vendorUrl) {
+		super();
+		this.name = name;
+		this.productsDTO = products;
+		this.vendorUrl = vendorUrl;
+	}
 }

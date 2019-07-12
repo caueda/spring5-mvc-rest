@@ -1,21 +1,18 @@
 package guru.springfamework.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Data;
-
 /**
  * Created by jt on 10/6/17.
  */
 @Data
 @Entity
-public class Vendor {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,5 +20,5 @@ public class Vendor {
 
     private String name;
     
-    private List<Product> products = new ArrayList<>();
+    private Vendor vendor;
 }

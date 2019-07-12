@@ -1,10 +1,12 @@
 package guru.springfamework.api.v1.mapper;
 
 import guru.springfamework.api.v1.model.VendorDTO;
+import guru.springfamework.domain.Product;
 import guru.springfamework.domain.Vendor;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class VendorMapperTest {
 
@@ -37,5 +39,20 @@ public class VendorMapperTest {
         //then
         assertEquals(vendorDTO.getName(), vendor.getName());
     }
-
+    
+    @Test
+    public void testVendorMapper() {
+		Vendor vendor = new Vendor();
+		vendor.setId(1L);
+		vendor.setName("Wolverine");
+		Product product = new Product();
+		product.setName("Omo");
+		product.setVendor(vendor);
+		vendor.getProducts().add(product);
+		
+		VendorDTO vendorDTO = VendorMapper.INSTANCE.vendorToVendorDTO(vendor);
+		
+		assertNotNull(vendorDTO.getName());
+		
+	}
 }
