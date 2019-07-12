@@ -1,8 +1,8 @@
 package guru.springfamework.api.v1.mapper;
 
+import org.mapstruct.Context;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import guru.springfamework.api.v1.model.ProductDTO;
@@ -16,9 +16,8 @@ public interface ProductMapper {
 
     ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
 
-    @Mapping(source = "vendor", target = "vendorDTO")
-    ProductDTO productToProductDTO(Product product);
+    ProductDTO productToProductDTO(Product product, @Context CycleAvoidingMappingContext context);
 
     @InheritInverseConfiguration
-    Product productDTOtoProduct(ProductDTO productDTO);
+    Product productDTOtoProduct(ProductDTO productDTO, @Context CycleAvoidingMappingContext context);
 }

@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class VendorDTO {
     private String name;
     
-    private List<ProductDTO> productsDTO = new ArrayList<>();
+    private List<ProductDTO> products = new ArrayList<>();
     
     @JsonProperty("vendor_url")
     private String vendorUrl;
@@ -31,7 +31,7 @@ public class VendorDTO {
 	public VendorDTO(String name, List<ProductDTO> products, String vendorUrl) {
 		super();
 		this.name = name;
-		this.productsDTO = products;
+		this.products = products;
 		this.vendorUrl = vendorUrl;
 	}
 }

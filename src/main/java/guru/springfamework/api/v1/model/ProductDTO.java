@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 public class ProductDTO {
 	
     private String name;
-    private VendorDTO vendorDTO;
+    private VendorDTO vendor;
 }
